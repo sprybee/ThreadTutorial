@@ -1,12 +1,17 @@
 package 创建线程;
 
+import lombok.extern.slf4j.Slf4j;
+
+
+@Slf4j
 public class Main {
     public static void main(String[] args) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("线程1");
-            }
-        },"线程1").start();
+        // 创建线程
+        Thread thread = new Thread(() -> {
+            log.debug("running");
+        }, "t1");
+        // 启动线程
+        thread.start();
+        log.debug("running");
     }
 }
